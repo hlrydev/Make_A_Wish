@@ -14,8 +14,8 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgb(217, 187, 255);
-  /*background-image: url('your-background-image.jpg');   Custom background image */
+  background-color: rgb(255, 186, 234);
+  background-image: url('background.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
