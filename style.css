@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+/* Prevent text selection for the entire document */
+body {
+    user-select: none; /* Standard syntax */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+  }
+
+  
+body {
+  font-family: 'Courgette', cursive;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(217, 187, 255);
+  /*background-image: url('your-background-image.jpg');   Custom background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+  
+
+#starCounter {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+button {
+    position: fixed;
+    bottom: 20px;
+    background-color: #00000082;
+    color: #fff;
+    border: none;
+    border-radius: 10%;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Courgette', cursive;
+  }
+  
+  #saveStars {
+    right: 30px;
+  }
+  
+  #removeStar {
+    right: 90px;
+  }
+
+  #clearStars {
+    right: 170px;
+  }
+
+/* Star styles */
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0;
+    animation: popIn 0.5s ease forwards, twinkle 2s infinite alternate;
+  }
+  
+  @keyframes popIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+    50% {
+      opacity: 0.7;
+      filter: blur(2px);
+    }
+  }
+  
+
+  .meteor {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px rgb(144, 57, 16);
+    animation: meteorShower 0.9s linear forwards;
+  }
+  
+  @keyframes meteorShower {
+    from {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    to {
+      transform: translate(100vw, 100vh); /* Adjust to move across the viewport */
+      opacity: 0;
+    }
+  }
+  
+  
+  
