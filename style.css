@@ -100,14 +100,13 @@ button {
     }
   }
   
-
   .meteor {
     position: absolute;
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 20px rgb(144, 57, 16);
+    background-color: rgb(250, 210, 210);
+    box-shadow: 0 0 40px rgb(101, 37, 7);
     animation: meteorShower 0.9s linear forwards;
   }
   
@@ -122,5 +121,64 @@ button {
     }
   }
   
-  
-  
+/* Cloud Container */
+#clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1; /* Clouds stay in the background */
+}
+
+/* Individual Cloud Style */
+.cloud {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  opacity: 0.4;
+  animation: moveClouds 100s linear infinite; /* Slower cloud movement */
+}
+
+/* Cloud animation */
+@keyframes moveClouds {
+  0% {
+    transform: translateX(60px) translateY(0); /* Start outside the left edge */
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100vw) translateY(50px); /* Move fully across the screen */
+    opacity: 0.3;
+  }
+}
+
+/* Cloud-specific animations */
+.cloud1 {
+  top: 100px;
+  left: -300px;
+  width: 200px;
+  animation: moveClouds 120s linear infinite;
+}
+
+.cloud2 {
+  top: 250px;
+  left: -400px;
+  width: 350px;
+  animation: moveClouds 130s linear infinite;
+}
+
+.cloud3 {
+  top: 400px;
+  left: -500px;
+  width: 300px;
+  animation: moveClouds 140s linear infinite;
+}
+
+.cloud4 {
+  top: 550px;
+  left: -600px;
+  width: 250px;
+  animation: moveClouds 150s linear infinite;
+}

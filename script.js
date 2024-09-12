@@ -155,7 +155,7 @@ document.getElementById('removeStar').addEventListener('click', () => {
 document.getElementById('clearStars').addEventListener('click', () => {
   localStorage.removeItem('stars');
   localStorage.removeItem('starCount');
-  alert('galaXenes cleared TTW');
+  alert('galaXenes cleared TT');
   location.reload();
 });
 
