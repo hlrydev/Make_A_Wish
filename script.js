@@ -4,11 +4,9 @@ const starCounterElement = document.getElementById('starCounter');
 let starCount = parseInt(localStorage.getItem('starCount')) || 0;
 starCounterElement.textContent = `stars: ${starCount}`;
 
-// Resize the canvas
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// Load saved stars
 function loadSavedStars() {
     const savedStars = JSON.parse(localStorage.getItem('stars')) || [];
     savedStars.forEach(starData => {
@@ -25,7 +23,6 @@ function loadSavedStars() {
   }
   
 
-// Function to generate a random position
 function randomPosition() {
   const x = Math.random() * canvas.width;
   const y = Math.random() * canvas.height;
