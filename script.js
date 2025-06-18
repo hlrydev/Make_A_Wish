@@ -2,7 +2,7 @@ const canvas = document.getElementById('starCanvas');
 const context = canvas.getContext('2d');
 const starCounterElement = document.getElementById('starCounter');
 let starCount = parseInt(localStorage.getItem('starCount')) || 0;
-starCounterElement.textContent = `galaXenes: ${starCount}`;
+starCounterElement.textContent = `stars: ${starCount}`;
 
 // Resize the canvas
 canvas.width = window.innerWidth;
@@ -39,33 +39,25 @@ function spawnStar() {
     star.style.left = `${x}px`;
     star.style.top = `${y}px`;
   
-    // Random size between 5px and 15px
     const size = Math.random() * 10 + 5;
     star.style.width = `${size}px`;
     star.style.height = `${size}px`;
   
-    // Apply a random delay to the twinkle animation
-    const delay = Math.random() * 2; // Random delay between 0s and 2s
+    const delay = Math.random() * 2;
     star.style.animationDelay = `${delay}s`;
   
     document.body.appendChild(star);
   
-    // Increment the counter and update
     starCount++;
-    starCounterElement.textContent = `galaXenes: ${starCount}`;
+    starCounterElement.textContent = `stars: ${starCount}`;
     localStorage.setItem('starCount', starCount);
   
-    // Save star position
     saveStars();
-  
-    // Handle special animations for 100, 500, and 1000 stars
-   // if (starCount % 500 === 0) createExplosion();
-    // if (starCount % 1000 === 0) createConstellation();
+
     if (starCount % 100 === 0) spawnMeteorShower();
   }
   
 
-// Save star positions
 function saveStars() {
     const stars = document.querySelectorAll('.star');
     const starArray = Array.from(stars).map(star => {
@@ -84,7 +76,7 @@ function saveStars() {
   
 
 function spawnMeteorShower() {
-    for (let i = 0; i < 100; i++) { // Number of meteors
+    for (let i = 0; i < 100; i++) {
       setTimeout(() => {
         const meteor = document.createElement('div');
         meteor.classList.add('meteor');
@@ -92,11 +84,10 @@ function spawnMeteorShower() {
         meteor.style.top = `${Math.random() * window.innerHeight}px`;
         document.body.appendChild(meteor);
   
-        // Remove the meteor after the animation
         setTimeout(() => {
           meteor.remove();
-        }, 5000); // Match the duration of the meteorShower animation
-      }, i * 150); // Delay between meteors
+        }, 5000); 
+      }, i * 150); 
     }
   }
   
@@ -129,15 +120,13 @@ function createConstellation() {
   }, 3000);
 }*/
 
-// Click event for spawning stars
 canvas.addEventListener('click', () => {
   spawnStar();
 });
 
-// Save and Remove stars functionality
 document.getElementById('saveStars').addEventListener('click', () => {
   localStorage.setItem('starCount', starCount);
-  alert(`galaXenes saved: ${starCount}`);
+  alert(`stars saved: ${starCount}`);
 });
 
 document.getElementById('removeStar').addEventListener('click', () => {
@@ -145,19 +134,17 @@ document.getElementById('removeStar').addEventListener('click', () => {
   if (stars.length > 0) {
     stars[stars.length - 1].remove();
     starCount--;
-    starCounterElement.textContent = `galaXenes: ${starCount}`;
+    starCounterElement.textContent = `stars: ${starCount}`;
     localStorage.setItem('starCount', starCount);
     saveStars();
   }
 });
 
-// Clear stars saved in local storage and restart counter
 document.getElementById('clearStars').addEventListener('click', () => {
   localStorage.removeItem('stars');
   localStorage.removeItem('starCount');
-  alert('galaXenes cleared TT');
+  alert('stars cleared TT');
   location.reload();
 });
 
-// Initialize by loading saved stars
 loadSavedStars();
