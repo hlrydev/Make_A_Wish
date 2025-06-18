@@ -11,7 +11,7 @@ An engaging interactive web experience where users can click anywhere on the pag
 
 ## Live Demo
 
-[View Live Site](https://hlrydev.github.io/UoPeople_GPA_Calculator/)
+[View Live Site](https://hlrydev.github.io/Make_A_Wish/)
 
 ## Technologies Used
 
